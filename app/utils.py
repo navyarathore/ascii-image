@@ -1,6 +1,7 @@
 from PIL import Image
 from io import BytesIO
 import requests
+from fastapi import UploadFile
 
 async def load_image(file, url):
     try:
@@ -10,4 +11,8 @@ async def load_image(file, url):
             response = requests.get(url)
             return Image.open(BytesIO(response.content))
     except Exception:
+        return None
+
+async def load_image(file: UploadFile = None, url: str = None):
+    if file is None and url is None:
         return None
