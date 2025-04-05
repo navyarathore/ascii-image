@@ -1,5 +1,3 @@
-from PIL import Image
-
 ASCII_CHARS = "@%#*+=-:. "
 
 def resize_image(image, width=100):
