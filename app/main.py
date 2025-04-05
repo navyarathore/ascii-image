@@ -21,3 +21,8 @@ async def convert_image(
     image = apply_filters(image, grayscale=grayscale, contrast=contrast)
     ascii_art = image_to_ascii(image, width=width)
     return ascii_art
+
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
